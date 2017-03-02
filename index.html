@@ -41,21 +41,21 @@
             <div>
                 <label>居住地區</label>
                 <select>
-            <option value="">香港島</option>
-            <option value="">九龍</option>
-            <option value="">新界</option>
+            <option value="one">香港島</option>
+            <option value="two">九龍</option>
+            <option value="three">新界</option>
         </select>
             </div>
 
             <div>
                 <label>工作地區</label>
                 <select>
-            <option value="">港島工作</option>
-            <option value="">九龍工作</option>
-            <option value="">新界工作</option>
-            <option value="">地點不定</option>
-            <option value="">家中工作</option>
-            <option value="">香港以外</option>
+            <option value="1">港島工作</option>
+            <option value="2">九龍工作</option>
+            <option value="3">新界工作</option>
+            <option value="4">地點不定</option>
+            <option value="5">家中工作</option>
+            <option value="6">香港以外</option>
         </select>
             </div>
 
@@ -102,13 +102,88 @@
     </div>
 
     <script>
+        var countArr = [{
+                start: "one",
+                end: "1",
+                count: "359,658"
+            }, {
+                start: "one",
+                end: "2",
+                count: "98,266"
+            }, {
+                start: "one",
+                end: "3",
+                count: "47,569"
+            }, {
+                start: "one",
+                end: "4",
+                count: "57,091"
+            }, {
+                start: "one",
+                end: "5",
+                count: "103,652"
+            }, {
+                start: "one",
+                end: "6",
+                count: "19,011"
+            },
+
+            {
+                start: "two",
+                end: "1",
+                count: "227,511"
+            }, {
+                start: "two",
+                end: "2",
+                count: "484,815"
+            }, {
+                start: "two",
+                end: "3",
+                count: "160,085"
+            }, {
+                start: "two",
+                end: "4",
+                count: "135,994"
+            }, {
+                start: "two",
+                end: "5",
+                count: "91,863"
+            }, {
+                start: "two",
+                end: "6",
+                count: "30,459"
+            },
+
+            {
+                start: "three",
+                end: "1",
+                count: "292,642"
+            }, {
+                start: "three",
+                end: "2",
+                count: "440,819"
+            }, {
+                start: "three",
+                end: "3",
+                count: "746,980"
+            }, {
+                start: "three",
+                end: "4",
+                count: "234,474"
+            }, {
+                start: "three",
+                end: "5",
+                count: "163,812"
+            }, {
+                start: "three",
+                end: "6",
+                count: "61,911"
+            },
+        ];
         $(function() {
-                var time = $('#commute').value;
-                var hour = time / 60;
-                var minute = time % 60;
-                console.log('time' + 'hour');
-            )
-        }
+            console.log(Object.keys(countArr));
+            $('#headcount').val(o: count);
+        });
     </script>
 </body>
 
