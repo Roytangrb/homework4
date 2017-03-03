@@ -66,13 +66,18 @@
                 <input class="form-control" type="text" id="output" readonly>
             </div>
             <div>
-                <label for="commute">通勤用時(/小時)</label>
+                <label for="commute">通勤用時(/分鐘)</label>
                 <message> </message>
-                <input type="range" min="0" max="180" step="10" id="commute">
+                <input type="range" min="0" max="180" step="1" id="commute">
             </div>
             <div class="form-group">
                 <label for="headcount">你的通勤時間超過了港人平均嗎？</label>
+                <input type="text" id="average" readonly />
+            </div>
 
+            <div>
+                <span class="glyphicon glyphicon-remove" aria-hidden="true" style="display: none" id="remove"></span>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true" style="display: none" id="ok"></span>
             </div>
         </div>
 
@@ -190,8 +195,23 @@
                 for (var i = 0; i < countArr.length; i++) {
                     if (index1 == countArr[i].start && index2 == countArr[i].end) { //if (index1 == $countArr[i].start && index2 == $countArr[i].end{
                         var result = countArr[i].count;
-                        $('#output').val(result);
+                        $('#output').val(result + "人");
                     }
+                }
+            });
+        });
+
+        $(function() {
+            $('#commute').change(function() {
+                var commuteTime = $('#commute').val();
+                var timeUsed = $('#commute').val();
+                $('#average').val(timeUsed + "分鐘");
+                if (commuteTime > 73) {
+                    $('#ok').show();
+                    $('#remove').hide();
+                } else {
+                    $('#remove').show();
+                    $('#ok').hide();
                 }
             });
         });
