@@ -40,7 +40,7 @@
             </div>
             <div>
                 <label>居住地區</label>
-                <select>
+                <select id="index1">
             <option value="one">香港島</option>
             <option value="two">九龍</option>
             <option value="three">新界</option>
@@ -49,7 +49,7 @@
 
             <div>
                 <label>工作地區</label>
-                <select>
+                <select id="index2">
             <option value="1">港島工作</option>
             <option value="2">九龍工作</option>
             <option value="3">新界工作</option>
@@ -59,9 +59,11 @@
         </select>
             </div>
 
+            <div><button class="btn btn-primary" id="submit">Submit</button></div>
+
             <div class="form-group">
                 <label for="headcount">人數</label>
-                <input class="form-control" type="text" id="headcount">
+                <input class="form-control" type="text" id="output" readonly>
             </div>
             <div>
                 <label for="commute">通勤用時(/小時)</label>
@@ -101,7 +103,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </div>
 
-    <script>
+    <script type="text/javascript">
         var countArr = [{
                 start: "one",
                 end: "1",
@@ -180,9 +182,18 @@
                 count: "61,911"
             },
         ];
+
         $(function() {
-            console.log(Object.keys(countArr));
-            $('#headcount').val(o: count);
+            $('#submit').click(function() {
+                var index1 = $('#index1').val();
+                var index2 = $('#index2').val();
+                for (var i = 0; i < countArr.length; i++) {
+                    if (index1 == countArr[i].start && index2 == countArr[i].end) { //if (index1 == $countArr[i].start && index2 == $countArr[i].end{
+                        var result = countArr[i].count;
+                        $('#output').val(result);
+                    }
+                }
+            });
         });
     </script>
 </body>
